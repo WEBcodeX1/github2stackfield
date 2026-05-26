@@ -1,0 +1,771 @@
+{
+	"MenuLink1":
+	{
+		"Type": "Link",
+		"Attributes":
+		{
+			"Style": "btn btn-outline-secondary me-2",
+			"TextID": "TXT.MENU.SCREEN1",
+			"ScreenID": "Screen1"
+		}
+	},
+
+	"MenuLink2":
+	{
+		"Type": "Link",
+		"Attributes":
+		{
+			"Style": "btn btn-outline-secondary me-2",
+			"TextID": "TXT.MENU.SCREEN2",
+			"ScreenID": "Screen2"
+		}
+	},
+
+	"MenuLink3":
+	{
+		"Type": "Link",
+		"Attributes":
+		{
+			"Style": "btn btn-outline-secondary me-2",
+			"TextID": "TXT.MENU.SCREEN3",
+			"ScreenID": "Screen3"
+		}
+	},
+
+	"GitHubCredentialsForm":
+	{
+		"Type": "FormfieldList",
+		"Attributes":
+		{
+			"Sections":
+			[
+				{
+					"ID": "GitHubSection",
+					"Object": "FormSectionHeader",
+					"ObjectAttributes":
+					{
+						"Style": "card card-line bg-body-tertiary border border-dark border-2 mb-4",
+						"SubStyle": "card-body mt-n6",
+						"HeaderIcon": "fa-brands fa-github",
+						"HeaderTextID": "TXT.SCREEN1.GITHUB.SECTION.HEADER",
+						"SubHeaderTextID": "TXT.SCREEN1.GITHUB.SECTION.SUBHEADER"
+					},
+					"Formfields":
+					[
+						"GitHubUserLabel",
+						"GitHubUserInput",
+						"GitHubTokenLabel",
+						"GitHubTokenInput"
+					],
+					"RowStyle": "row mb-3",
+					"RowAfterElements": 4,
+					"ColStyle": "col-md-6",
+					"ColAfterElements": 2
+				}
+			]
+		}
+	},
+
+	"GitHubUserLabel":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "label",
+			"Style": "form-label fw-semibold",
+			"TextID": "TXT.SCREEN1.GITHUB.USER.LABEL"
+		}
+	},
+
+	"GitHubUserInput":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "text",
+			"Style": "form-control form-control-lg",
+			"Placeholder": "github-username",
+			"ValidateRef": "DefaultString",
+			"ValidateNullable": false
+		}
+	},
+
+	"GitHubTokenLabel":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "label",
+			"Style": "form-label fw-semibold",
+			"TextID": "TXT.SCREEN1.GITHUB.TOKEN.LABEL"
+		}
+	},
+
+	"GitHubTokenInput":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "password",
+			"Style": "form-control form-control-lg",
+			"Placeholder": "ghp_xxxxxxxxxxxxxxxxxxxx",
+			"ValidateRef": "DefaultString",
+			"ValidateNullable": false
+		}
+	},
+
+	"GitHubVerifyButton":
+	{
+		"Type": "Button",
+		"Attributes":
+		{
+			"TextID": "TXT.SCREEN1.GITHUB.VERIFY.BUTTON",
+			"Style": "btn btn-outline-primary w-100 mb-4",
+			"IconStyle": "fa-solid fa-shield-halved",
+			"OnClick": "/python/VerifyGitHubCredentials.py",
+			"SrcDataObjects":
+			[
+				"GitHubCredentialsForm"
+			],
+			"Notify":
+			{
+				"ID": "VerifyGitHubCredentials",
+				"DisplayHeaderID": "TXT.SCREEN1.GITHUB.VERIFY.NOTIFY"
+			}
+		}
+	},
+
+	"StackfieldCredentialsForm":
+	{
+		"Type": "FormfieldList",
+		"Attributes":
+		{
+			"Sections":
+			[
+				{
+					"ID": "StackfieldSection",
+					"Object": "FormSectionHeader",
+					"ObjectAttributes":
+					{
+						"Style": "card card-line bg-body-tertiary border border-dark border-2 mb-4",
+						"SubStyle": "card-body mt-n6",
+						"HeaderIcon": "fa-solid fa-layer-group",
+						"HeaderTextID": "TXT.SCREEN1.STACKFIELD.SECTION.HEADER",
+						"SubHeaderTextID": "TXT.SCREEN1.STACKFIELD.SECTION.SUBHEADER"
+					},
+					"Formfields":
+					[
+						"StackfieldEmailLabel",
+						"StackfieldEmailInput",
+						"StackfieldTokenLabel",
+						"StackfieldTokenInput"
+					],
+					"RowStyle": "row mb-3",
+					"RowAfterElements": 4,
+					"ColStyle": "col-md-6",
+					"ColAfterElements": 2
+				}
+			]
+		}
+	},
+
+	"StackfieldEmailLabel":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "label",
+			"Style": "form-label fw-semibold",
+			"TextID": "TXT.SCREEN1.STACKFIELD.EMAIL.LABEL"
+		}
+	},
+
+	"StackfieldEmailInput":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "text",
+			"Style": "form-control form-control-lg",
+			"Placeholder": "user@example.com",
+			"ValidateRef": "DefaultString",
+			"ValidateNullable": false
+		}
+	},
+
+	"StackfieldTokenLabel":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "label",
+			"Style": "form-label fw-semibold",
+			"TextID": "TXT.SCREEN1.STACKFIELD.TOKEN.LABEL"
+		}
+	},
+
+	"StackfieldTokenInput":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "password",
+			"Style": "form-control form-control-lg",
+			"Placeholder": "stackfield-api-token",
+			"ValidateRef": "DefaultString",
+			"ValidateNullable": false
+		}
+	},
+
+	"StackfieldVerifyButton":
+	{
+		"Type": "Button",
+		"Attributes":
+		{
+			"TextID": "TXT.SCREEN1.STACKFIELD.VERIFY.BUTTON",
+			"Style": "btn btn-outline-success w-100 mb-4",
+			"IconStyle": "fa-solid fa-shield-halved",
+			"OnClick": "/python/VerifyStackfieldCredentials.py",
+			"SrcDataObjects":
+			[
+				"StackfieldCredentialsForm"
+			],
+			"Notify":
+			{
+				"ID": "VerifyStackfieldCredentials",
+				"DisplayHeaderID": "TXT.SCREEN1.STACKFIELD.VERIFY.NOTIFY"
+			}
+		}
+	},
+
+	"SearchForm":
+	{
+		"Type": "FormfieldList",
+		"Attributes":
+		{
+			"Sections":
+			[
+				{
+					"ID": "SearchSection",
+					"Object": "FormSectionHeader",
+					"ObjectAttributes":
+					{
+						"Style": "card card-line bg-body-tertiary border border-dark border-2 mb-3",
+						"SubStyle": "card-body mt-n6",
+						"HeaderIcon": "fa-solid fa-magnifying-glass",
+						"HeaderTextID": "TXT.SCREEN2.SEARCH.SECTION.HEADER",
+						"SubHeaderTextID": "TXT.SCREEN2.SEARCH.SECTION.SUBHEADER"
+					},
+					"Formfields":
+					[
+						"SearchQueryLabel",
+						"SearchQueryInput",
+						"SearchRepoLabel",
+						"SearchRepoInput"
+					],
+					"RowStyle": "row mb-3",
+					"RowAfterElements": 4,
+					"ColStyle": "col-md-6",
+					"ColAfterElements": 2
+				}
+			]
+		}
+	},
+
+	"SearchQueryLabel":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "label",
+			"Style": "form-label fw-semibold",
+			"TextID": "TXT.SCREEN2.SEARCH.QUERY.LABEL"
+		}
+	},
+
+	"SearchQueryInput":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "text",
+			"Style": "form-control form-control-lg",
+			"Placeholder": "Search GitHub issues...",
+			"ValidateRef": "DefaultString",
+			"ValidateNullable": true
+		}
+	},
+
+	"SearchRepoLabel":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "label",
+			"Style": "form-label fw-semibold",
+			"TextID": "TXT.SCREEN2.SEARCH.REPO.LABEL"
+		}
+	},
+
+	"SearchRepoInput":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "text",
+			"Style": "form-control form-control-lg",
+			"Placeholder": "owner/repository",
+			"ValidateRef": "DefaultString",
+			"ValidateNullable": false
+		}
+	},
+
+	"SearchButton":
+	{
+		"Type": "Button",
+		"Attributes":
+		{
+			"TextID": "TXT.SCREEN2.SEARCH.BUTTON",
+			"Style": "btn btn-primary w-100 mb-4",
+			"IconStyle": "fa-solid fa-magnifying-glass",
+			"FireEvents": [ "SearchGitHubIssues" ]
+		}
+	},
+
+	"IssueSearchConnector":
+	{
+		"Type": "ServiceConnector",
+		"Attributes":
+		{
+			"OnEvent":
+			{
+				"Events": [ "SearchGitHubIssues" ],
+				"ServiceCall": "/python/SearchGitHubIssues.py"
+			},
+			"SrcDataObjects":
+			{
+				"SearchForm":
+				{
+					"Type": "FormfieldList"
+				}
+			}
+		}
+	},
+
+	"IssueList":
+	{
+		"Type": "List",
+		"Attributes":
+		{
+			"Style": "border rounded-top rounded-bottom",
+			"HeaderRowStyle": "row fw-bold fs-6 m-2 border-bottom bg-light",
+			"RowCount": 15,
+			"Navigation": true,
+			"Columns":
+			[
+				{
+					"ID": "issue_number",
+					"VisibleState": "hidden"
+				},
+				{
+					"ID": "number",
+					"HeaderTextID": "TXT.SCREEN2.LIST.COL.NUMBER",
+					"HeaderStyle": "col-md-1 p-3 border-end text-center"
+				},
+				{
+					"ID": "title",
+					"HeaderTextID": "TXT.SCREEN2.LIST.COL.TITLE",
+					"HeaderStyle": "col-md-5 p-3 border-end"
+				},
+				{
+					"ID": "state",
+					"HeaderTextID": "TXT.SCREEN2.LIST.COL.STATE",
+					"HeaderStyle": "col-md-2 p-3 border-end text-center"
+				},
+				{
+					"ID": "created_at",
+					"HeaderTextID": "TXT.SCREEN2.LIST.COL.CREATED",
+					"HeaderStyle": "col-md-2 p-3 border-end"
+				},
+				{
+					"ID": "assignee",
+					"HeaderTextID": "TXT.SCREEN2.LIST.COL.ASSIGNEE",
+					"HeaderStyle": "col-md-2 p-3"
+				}
+			],
+			"ContextMenuItems":
+			[
+				{
+					"ID": "ConnectStackfieldTask",
+					"TextID": "TXT.SCREEN2.CONTEXTMENU.CONNECT",
+					"IconStyle": "fa-solid fa-link",
+					"DstScreenID": "Screen3",
+					"RowColumn": "issue_number",
+					"FireEvents": [ "ConnectStackfieldTask" ]
+				}
+			],
+			"RowStyle": "row m-2 border-bottom",
+			"RowAfterElements": 6,
+			"ColStyle":
+			[
+				"dummy",
+				"col-md-1 p-3 border-end text-center fw-bold text-primary",
+				"col-md-5 p-3 border-end",
+				"col-md-2 p-3 border-end text-center",
+				"col-md-2 p-3 border-end text-muted small",
+				"col-md-2 p-3 text-muted small"
+			]
+		}
+	},
+
+	"IssueDetailsConnector":
+	{
+		"Type": "ServiceConnector",
+		"Attributes":
+		{
+			"OnEvent":
+			{
+				"Events": [ "ConnectStackfieldTask" ],
+				"ServiceCall": "/python/GetGitHubIssueDetails.py"
+			},
+			"SrcDataObjects":
+			{
+				"issue_number":
+				{
+					"Type": "ScreenGlobalVar"
+				}
+			}
+		}
+	},
+
+	"IssueDetailsForm":
+	{
+		"Type": "FormfieldList",
+		"Attributes":
+		{
+			"Sections":
+			[
+				{
+					"ID": "IssueDetailsSection",
+					"Object": "FormSectionHeader",
+					"ObjectAttributes":
+					{
+						"Style": "card card-line bg-body-tertiary border border-dark border-2 mb-4",
+						"SubStyle": "card-body mt-n6",
+						"HeaderIcon": "fa-brands fa-github",
+						"HeaderTextID": "TXT.SCREEN3.ISSUE.SECTION.HEADER",
+						"SubHeaderTextID": "TXT.SCREEN3.ISSUE.SECTION.SUBHEADER"
+					},
+					"Formfields":
+					[
+						"IssueNumberLabel",
+						"IssueNumberField",
+						"IssueStateLabel",
+						"IssueStateField",
+						"IssueTitleLabel",
+						"IssueTitleField",
+						"IssueUrlLabel",
+						"IssueUrlField"
+					],
+					"RowStyle":
+					[
+						"row mb-3",
+						"row mb-3"
+					],
+					"RowAfterElements": [ 4, 4 ],
+					"ColStyle":
+					[
+						"col-md-3 mb-2",
+						"col-md-3 mb-2",
+						"col-md-6 mb-2",
+						"col-md-6 mb-2"
+					]
+				}
+			],
+			"SrcDataObjects":
+			{
+				"issue_number":
+				{
+					"Type": "ScreenGlobalVar"
+				}
+			}
+		}
+	},
+
+	"IssueNumberLabel":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "label",
+			"Style": "form-label fw-semibold",
+			"TextID": "TXT.SCREEN3.ISSUE.NUMBER.LABEL"
+		}
+	},
+
+	"IssueNumberField":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "text",
+			"DBColumn": "number",
+			"Style": "form-control",
+			"Disabled": true
+		}
+	},
+
+	"IssueStateLabel":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "label",
+			"Style": "form-label fw-semibold",
+			"TextID": "TXT.SCREEN3.ISSUE.STATE.LABEL"
+		}
+	},
+
+	"IssueStateField":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "text",
+			"DBColumn": "state",
+			"Style": "form-control",
+			"Disabled": true
+		}
+	},
+
+	"IssueTitleLabel":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "label",
+			"Style": "form-label fw-semibold",
+			"TextID": "TXT.SCREEN3.ISSUE.TITLE.LABEL"
+		}
+	},
+
+	"IssueTitleField":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "text",
+			"DBColumn": "title",
+			"Style": "form-control",
+			"Disabled": true
+		}
+	},
+
+	"IssueUrlLabel":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "label",
+			"Style": "form-label fw-semibold",
+			"TextID": "TXT.SCREEN3.ISSUE.URL.LABEL"
+		}
+	},
+
+	"IssueUrlField":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "text",
+			"DBColumn": "html_url",
+			"Style": "form-control",
+			"Disabled": true
+		}
+	},
+
+	"StackfieldMappingForm":
+	{
+		"Type": "FormfieldList",
+		"Attributes":
+		{
+			"Sections":
+			[
+				{
+					"ID": "StackfieldMappingSection",
+					"Object": "FormSectionHeader",
+					"ObjectAttributes":
+					{
+						"Style": "card card-line bg-body-tertiary border border-dark border-2 mb-4",
+						"SubStyle": "card-body mt-n6",
+						"HeaderIcon": "fa-solid fa-layer-group",
+						"HeaderTextID": "TXT.SCREEN3.STACKFIELD.SECTION.HEADER",
+						"SubHeaderTextID": "TXT.SCREEN3.STACKFIELD.SECTION.SUBHEADER"
+					},
+					"Formfields":
+					[
+						"StackfieldRoomLabel",
+						"StackfieldRoomInput",
+						"TaskTitleLabel",
+						"TaskTitleInput",
+						"TaskDescLabel",
+						"TaskDescInput",
+						"TaskPriorityLabel",
+						"TaskPriorityPulldown"
+					],
+					"RowStyle":
+					[
+						"row mb-3",
+						"row mb-3",
+						"row mb-3"
+					],
+					"RowAfterElements": [ 4, 2, 2 ],
+					"ColStyle":
+					[
+						"col-md-6 mb-2",
+						"col-md-6 mb-2",
+						"col-md-12 mb-2",
+						"col-md-12 mb-2"
+					]
+				}
+			]
+		}
+	},
+
+	"StackfieldRoomLabel":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "label",
+			"Style": "form-label fw-semibold",
+			"TextID": "TXT.SCREEN3.STACKFIELD.ROOM.LABEL"
+		}
+	},
+
+	"StackfieldRoomInput":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "text",
+			"DBColumn": "stackfield_room_id",
+			"Style": "form-control",
+			"Placeholder": "Stackfield Room ID",
+			"ValidateRef": "DefaultString",
+			"ValidateNullable": false
+		}
+	},
+
+	"TaskTitleLabel":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "label",
+			"Style": "form-label fw-semibold",
+			"TextID": "TXT.SCREEN3.TASK.TITLE.LABEL"
+		}
+	},
+
+	"TaskTitleInput":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "text",
+			"DBColumn": "task_title",
+			"Style": "form-control",
+			"ValidateRef": "DefaultString",
+			"ValidateNullable": false
+		}
+	},
+
+	"TaskDescLabel":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "label",
+			"Style": "form-label fw-semibold",
+			"TextID": "TXT.SCREEN3.TASK.DESC.LABEL"
+		}
+	},
+
+	"TaskDescInput":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "textarea",
+			"DBColumn": "task_description",
+			"Style": "form-control",
+			"Rows": 5,
+			"ValidateNullable": true
+		}
+	},
+
+	"TaskPriorityLabel":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "label",
+			"Style": "form-label fw-semibold",
+			"TextID": "TXT.SCREEN3.TASK.PRIORITY.LABEL"
+		}
+	},
+
+	"TaskPriorityPulldown":
+	{
+		"Type": "Formfield",
+		"Attributes":
+		{
+			"Type": "pulldown",
+			"DBColumn": "task_priority",
+			"Style": "form-select",
+			"Options":
+			[
+				{
+					"TextID": "TXT.SCREEN3.PRIORITY.LOW",
+					"Value": "low",
+					"Default": true
+				},
+				{
+					"TextID": "TXT.SCREEN3.PRIORITY.MEDIUM",
+					"Value": "medium"
+				},
+				{
+					"TextID": "TXT.SCREEN3.PRIORITY.HIGH",
+					"Value": "high"
+				},
+				{
+					"TextID": "TXT.SCREEN3.PRIORITY.URGENT",
+					"Value": "urgent"
+				}
+			]
+		}
+	},
+
+	"CreateStackfieldTaskButton":
+	{
+		"Type": "Button",
+		"Attributes":
+		{
+			"TextID": "TXT.SCREEN3.CREATE.BUTTON",
+			"Style": "btn btn-success w-100 mt-2 mb-4",
+			"IconStyle": "fa-solid fa-circle-plus",
+			"OnClick": "/python/CreateStackfieldTask.py",
+			"SrcDataObjects":
+			[
+				"IssueDetailsForm",
+				"StackfieldMappingForm"
+			],
+			"Notify":
+			{
+				"ID": "CreateStackfieldTask",
+				"DisplayHeaderID": "TXT.SCREEN3.CREATE.NOTIFY"
+			}
+		}
+	}
+}

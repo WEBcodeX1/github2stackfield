@@ -1,0 +1,85 @@
+{
+	"Screen1":
+	[
+		{
+			"GitHubCredentialsForm":
+			{
+				"RefID": "Screen1"
+			}
+		},
+		{
+			"GitHubVerifyButton":
+			{
+				"RefID": "Screen1"
+			}
+		},
+		{
+			"StackfieldCredentialsForm":
+			{
+				"RefID": "Screen1"
+			}
+		},
+		{
+			"StackfieldVerifyButton":
+			{
+				"RefID": "Screen1"
+			}
+		}
+	],
+
+	"Screen2":
+	[
+		{
+			"SearchForm":
+			{
+				"RefID": "Screen2"
+			}
+		},
+		{
+			"SearchButton":
+			{
+				"RefID": "Screen2"
+			}
+		},
+		{
+			"IssueSearchConnector":
+			{
+				"RefID": "Screen2"
+			}
+		},
+		{
+			"IssueList":
+			{
+				"RefID": "IssueSearchConnector"
+			}
+		}
+	],
+
+	"Screen3":
+	[
+		{
+			"IssueDetailsConnector":
+			{
+				"RefID": "Screen3"
+			}
+		},
+		{
+			"IssueDetailsForm":
+			{
+				"RefID": "IssueDetailsConnector"
+			}
+		},
+		{
+			"StackfieldMappingForm":
+			{
+				"RefID": "IssueDetailsConnector"
+			}
+		},
+		{
+			"CreateStackfieldTaskButton":
+			{
+				"RefID": "Screen3"
+			}
+		}
+	]
+}

@@ -1,0 +1,50 @@
+services:
+
+  # ---------------------------------------------------------------------------
+  #  PostgreSQL database (shared with x0 framework)
+  # ---------------------------------------------------------------------------
+  postgres:
+    image: postgres:16-alpine
+    container_name: github2sf-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: x0
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: changeme
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - github2sf-net
+
+  # ---------------------------------------------------------------------------
+  #  x0 application server (Apache2 + mod_wsgi)
+  # ---------------------------------------------------------------------------
+  x0-app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: github2sf-app
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_NAME: x0
+      DB_USER: postgres
+      DB_PASSWORD: changeme
+    volumes:
+      - ../static:/var/www/x0/static/github2sf:ro
+      - ../python:/var/www/x0/python/github2sf:ro
+    ports:
+      - "8080:80"
+    networks:
+      - github2sf-net
+
+volumes:
+  pg_data:
+
+networks:
+  github2sf-net:
+    driver: bridge
