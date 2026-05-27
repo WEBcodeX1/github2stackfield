@@ -18,8 +18,10 @@ COPY static/ /var/www/vhosts/x0/static/github2sf/
 # Link the x0 base stylesheets and fontawesome into the app subdir so that
 # the x0 framework can find bootstrap.css, globalstyles.css and all.min.css
 # at the {subdir}/ path it generates in the HTML <link> tags.
+# globalstyles.css is copied (not symlinked) so that app-specific overrides
+# for notification indicator styles (IndicatorSuccess, IndicatorWarning, ...)
+# are included.
 RUN ln -s /var/www/vhosts/x0/static/bootstrap.css /var/www/vhosts/x0/static/github2sf/bootstrap.css \
-    && ln -s /var/www/vhosts/x0/static/globalstyles.css /var/www/vhosts/x0/static/github2sf/globalstyles.css \
     && ln -s /var/www/vhosts/x0/static/fontawesome /var/www/vhosts/x0/static/github2sf/fontawesome
 
 # Copy Python WSGI backend scripts into the x0 python directory
