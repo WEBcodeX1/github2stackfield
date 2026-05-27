@@ -86,7 +86,7 @@ psql -U postgres -d x0 -f database/03-insert-text.sql
 Copy the `static/` directory so it is served at `/static/github2sf/`:
 
 ```bash
-cp -r static/ /var/www/x0/static/github2sf/
+cp -r static/ /var/www/vhosts/x0/static/github2sf/
 ```
 
 ### 5. Deploy Python backend
@@ -94,14 +94,15 @@ cp -r static/ /var/www/x0/static/github2sf/
 Copy the `python/` directory into the x0 Python directory:
 
 ```bash
-cp python/*.py /var/www/x0/python/github2sf/
+cp python/*.py /var/www/vhosts/x0/python/github2sf/
 ```
 
 ### 6. Configure Apache2
 
-Add the WSGI aliases from `docker/apache2.conf` to your Apache virtual host, then reload:
+Copy `docker/apache2.conf` to `/etc/apache2/conf-enabled/github2sf.conf` and reload:
 
 ```bash
+cp docker/apache2.conf /etc/apache2/conf-enabled/github2sf.conf
 apache2ctl graceful
 ```
 
@@ -113,6 +114,13 @@ Navigate to `http://your-server/?appid=github2sf` in your browser.
 
 ## Docker (quick start)
 
+The application uses the official x0 container images:
+
+- **`ghcr.io/webcodex1/x0-app`** — Apache2 + mod_wsgi web application server with the x0 JavaScript framework pre-installed ([packages page](https://github.com/WEBcodeX1/x0/pkgs/container/x0-app))
+- **`ghcr.io/webcodex1/x0-db`** — PostgreSQL 16 database with the x0 schema pre-installed ([packages page](https://github.com/WEBcodeX1/x0/pkgs/container/x0-db))
+
+The `docker/Dockerfile` extends `ghcr.io/webcodex1/x0-app` and adds the github2stackfield Python backend dependencies on top.
+
 ```bash
 cd docker
 docker compose up --build
@@ -120,13 +128,12 @@ docker compose up --build
 
 Then open [http://localhost:8080/?appid=github2sf](http://localhost:8080/?appid=github2sf).
 
-> **Note:** The Docker image fetches x0 and python-micro-esb from GitHub at build time.  
-> You still need to run the database SQL scripts against the PostgreSQL container:
+> **Database setup:** After the containers are running, execute the SQL scripts against the x0-db container:
 >
 > ```bash
-> docker exec -i github2sf-db psql -U postgres -d x0 < database/01-create-schema.sql
-> docker exec -i github2sf-db psql -U postgres -d x0 < database/02-insert-config.sql
-> docker exec -i github2sf-db psql -U postgres -d x0 < database/03-insert-text.sql
+> docker exec -i github2sf-db psql -U postgres -d x0 -f /dev/stdin < database/01-create-schema.sql
+> docker exec -i github2sf-db psql -U postgres -d x0 -f /dev/stdin < database/02-insert-config.sql
+> docker exec -i github2sf-db psql -U postgres -d x0 -f /dev/stdin < database/03-insert-text.sql
 > ```
 
 ---

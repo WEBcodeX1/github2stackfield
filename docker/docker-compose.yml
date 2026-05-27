@@ -1,25 +1,24 @@
 services:
 
   # ---------------------------------------------------------------------------
-  #  PostgreSQL database (shared with x0 framework)
+  #  x0 database container (PostgreSQL with x0 schema pre-installed)
+  #  Official image: https://github.com/WEBcodeX1/x0/pkgs/container/x0-db
   # ---------------------------------------------------------------------------
-  postgres:
-    image: postgres:16-alpine
+  x0-db:
+    image: ghcr.io/webcodex1/x0-db
     container_name: github2sf-db
     restart: unless-stopped
-    environment:
-      POSTGRES_DB: x0
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: changeme
-    volumes:
-      - pg_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     networks:
-      - github2sf-net
+      github2sf-net:
+        ipv4_address: 172.20.0.20
+        aliases:
+          - mypostgres
 
   # ---------------------------------------------------------------------------
-  #  x0 application server (Apache2 + mod_wsgi)
+  #  x0 application server (extends official x0-app with github2sf Python deps)
+  #  Official image: https://github.com/WEBcodeX1/x0/pkgs/container/x0-app
   # ---------------------------------------------------------------------------
   x0-app:
     build:
@@ -28,23 +27,23 @@ services:
     container_name: github2sf-app
     restart: unless-stopped
     depends_on:
-      - postgres
-    environment:
-      DB_HOST: postgres
-      DB_NAME: x0
-      DB_USER: postgres
-      DB_PASSWORD: changeme
+      - x0-db
+    extra_hosts:
+      - "mypostgres:172.20.0.20"
     volumes:
-      - ../static:/var/www/x0/static/github2sf:ro
-      - ../python:/var/www/x0/python/github2sf:ro
+      - ../static:/var/www/vhosts/x0/static/github2sf:ro
+      - ../python:/var/www/vhosts/x0/python/github2sf:ro
+      - ../docker/apache2.conf:/etc/apache2/conf-enabled/github2sf.conf:ro
     ports:
       - "8080:80"
     networks:
-      - github2sf-net
-
-volumes:
-  pg_data:
+      github2sf-net:
+        ipv4_address: 172.20.0.10
 
 networks:
   github2sf-net:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+          gateway: 172.20.0.1
