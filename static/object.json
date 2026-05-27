@@ -122,7 +122,7 @@
 			"TextID": "TXT.SCREEN1.GITHUB.VERIFY.BUTTON",
 			"Style": "btn btn-outline-primary w-100 mb-4",
 			"IconStyle": "fa-solid fa-shield-halved",
-			"OnClick": "/python/VerifyGitHubCredentials.py",
+			"OnClick": "/python/github2sf/VerifyGitHubCredentials.py",
 			"SrcDataObjects":
 			[
 				"GitHubCredentialsForm"
@@ -225,7 +225,7 @@
 			"TextID": "TXT.SCREEN1.STACKFIELD.VERIFY.BUTTON",
 			"Style": "btn btn-outline-success w-100 mb-4",
 			"IconStyle": "fa-solid fa-shield-halved",
-			"OnClick": "/python/VerifyStackfieldCredentials.py",
+			"OnClick": "/python/github2sf/VerifyStackfieldCredentials.py",
 			"SrcDataObjects":
 			[
 				"StackfieldCredentialsForm"
@@ -340,7 +340,7 @@
 			"OnEvent":
 			{
 				"Events": [ "SearchGitHubIssues" ],
-				"ServiceCall": "/python/SearchGitHubIssues.py"
+				"ServiceCall": "/python/github2sf/SearchGitHubIssues.py"
 			},
 			"SrcDataObjects":
 			{
@@ -426,7 +426,7 @@
 			"OnEvent":
 			{
 				"Events": [ "ConnectStackfieldTask" ],
-				"ServiceCall": "/python/GetGitHubIssueDetails.py"
+				"ServiceCall": "/python/github2sf/GetGitHubIssueDetails.py"
 			},
 			"SrcDataObjects":
 			{
@@ -755,7 +755,7 @@
 			"TextID": "TXT.SCREEN3.CREATE.BUTTON",
 			"Style": "btn btn-success w-100 mt-2 mb-4",
 			"IconStyle": "fa-solid fa-circle-plus",
-			"OnClick": "/python/CreateStackfieldTask.py",
+			"OnClick": "/python/github2sf/CreateStackfieldTask.py",
 			"SrcDataObjects":
 			[
 				"IssueDetailsForm",

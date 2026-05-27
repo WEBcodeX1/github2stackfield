@@ -10,10 +10,12 @@
 import sys
 import json
 
+sys.path.insert(0, '/var/www/vhosts/x0/python/github2sf')
+
 import POSTData
 from StdoutLogger import logger
 
-from router import ServiceRouter
+from microesb.router import ServiceRouter
 
 
 def application(environ, start_response):
