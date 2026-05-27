@@ -1,0 +1,49 @@
+services:
+
+  # ---------------------------------------------------------------------------
+  #  x0 database container — extends the official x0-db image and
+  #  automatically initialises the github2stackfield schema + data on startup.
+  #  Official base: https://github.com/WEBcodeX1/x0/pkgs/container/x0-db
+  # ---------------------------------------------------------------------------
+  x0-db:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.db
+    container_name: github2sf-db
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    networks:
+      github2sf-net:
+        ipv4_address: 172.20.0.20
+        aliases:
+          - mypostgres
+
+  # ---------------------------------------------------------------------------
+  #  x0 application server — extends the official x0-app image and
+  #  bundles all static / Python backend / Apache config at build time.
+  #  Official base: https://github.com/WEBcodeX1/x0/pkgs/container/x0-app
+  # ---------------------------------------------------------------------------
+  x0-app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: github2sf-app
+    restart: unless-stopped
+    depends_on:
+      - x0-db
+    extra_hosts:
+      - "mypostgres:172.20.0.20"
+    ports:
+      - "8080:80"
+    networks:
+      github2sf-net:
+        ipv4_address: 172.20.0.10
+
+networks:
+  github2sf-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+          gateway: 172.20.0.1
