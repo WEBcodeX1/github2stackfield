@@ -50,65 +50,9 @@ Review the selected GitHub issue and create a Stackfield task.
 
 | Requirement | Notes |
 |---|---|
-| x0 framework | Follow [x0 INSTALL.md](https://github.com/WEBcodeX1/x0/blob/main/INSTALL.md) |
-| PostgreSQL ≥ 14 | Shared with x0 |
-| Python ≥ 3.10 | `requests`, `psycopg2`, `pgdbpool`, `python-micro-esb` |
+| Docker Engine | With Compose V2 (`docker compose`) |
 | GitHub Personal Access Token | Needs `repo` scope for private repos, `public_repo` for public |
 | Stackfield API token | See Stackfield workspace settings → Integrations → API |
-
----
-
-## Installation
-
-### 1. Set up x0
-
-Follow the official x0 installation guide to get the base framework running with PostgreSQL.
-
-### 2. Install Python dependencies
-
-```bash
-pip install requests psycopg2-binary pgdbpool
-pip install git+https://github.com/clauspruefer/python-micro-esb.git
-```
-
-### 3. Run database setup scripts
-
-Connect to your x0 PostgreSQL database and execute the scripts in order:
-
-```bash
-psql -U postgres -d x0 -f database/01-create-schema.sql
-psql -U postgres -d x0 -f database/02-insert-config.sql
-psql -U postgres -d x0 -f database/03-insert-text.sql
-```
-
-### 4. Deploy static files
-
-Copy the `static/` directory so it is served at `/static/github2sf/`:
-
-```bash
-cp -r static/ /var/www/vhosts/x0/static/github2sf/
-```
-
-### 5. Deploy Python backend
-
-Copy the `python/` directory into the x0 Python directory:
-
-```bash
-cp python/*.py /var/www/vhosts/x0/python/github2sf/
-```
-
-### 6. Configure Apache2
-
-Copy `docker/apache2.conf` to `/etc/apache2/conf-enabled/github2sf.conf` and reload:
-
-```bash
-cp docker/apache2.conf /etc/apache2/conf-enabled/github2sf.conf
-apache2ctl graceful
-```
-
-### 7. Open the application
-
-Navigate to `http://your-server/?appid=github2sf` in your browser.
 
 ---
 
@@ -119,7 +63,10 @@ The application uses the official x0 container images:
 - **`ghcr.io/webcodex1/x0-app`** — Apache2 + mod_wsgi web application server with the x0 JavaScript framework pre-installed ([packages page](https://github.com/WEBcodeX1/x0/pkgs/container/x0-app))
 - **`ghcr.io/webcodex1/x0-db`** — PostgreSQL 16 database with the x0 schema pre-installed ([packages page](https://github.com/WEBcodeX1/x0/pkgs/container/x0-db))
 
-The `docker/Dockerfile` extends `ghcr.io/webcodex1/x0-app` and adds the github2stackfield Python backend dependencies on top.
+Both custom images are built automatically on `docker compose up --build`:
+
+- `docker/Dockerfile` extends `ghcr.io/webcodex1/x0-app` and copies all static files, Python WSGI scripts, and the Apache2 config snippet into the image.
+- `docker/Dockerfile.db` extends `ghcr.io/webcodex1/x0-db` and runs the github2stackfield SQL init scripts (`database/0*.sql`) against the x0 database on first start.
 
 ```bash
 cd docker
@@ -128,13 +75,7 @@ docker compose up --build
 
 Then open [http://localhost:8080/?appid=github2sf](http://localhost:8080/?appid=github2sf).
 
-> **Database setup:** After the containers are running, execute the SQL scripts against the x0-db container:
->
-> ```bash
-> docker exec -i github2sf-db psql -U postgres -d x0 -f /dev/stdin < database/01-create-schema.sql
-> docker exec -i github2sf-db psql -U postgres -d x0 -f /dev/stdin < database/02-insert-config.sql
-> docker exec -i github2sf-db psql -U postgres -d x0 -f /dev/stdin < database/03-insert-text.sql
-> ```
+No further manual configuration is required.
 
 ---
 
@@ -161,8 +102,10 @@ github2stackfield/
 │   ├── 02-insert-config.sql   # x0 app configuration rows
 │   └── 03-insert-text.sql     # UI text / i18n entries
 ├── docker/
-│   ├── Dockerfile
+│   ├── Dockerfile          # extends x0-app, bakes in static/ python/ apache2.conf
+│   ├── Dockerfile.db       # extends x0-db, auto-inits github2sf schema on startup
 │   ├── docker-compose.yml
+│   ├── db-init.sh          # startup script used by Dockerfile.db
 │   └── apache2.conf
 └── README.md
 ```

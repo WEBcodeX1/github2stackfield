@@ -1,0 +1,11 @@
+FROM ghcr.io/webcodex1/x0-db
+
+# Copy the github2stackfield SQL init scripts into the container
+COPY database/ /opt/github2sf-init/
+
+# Copy the custom startup script and make it executable
+COPY docker/db-init.sh /root/github2sf-start.sh
+RUN chmod +x /root/github2sf-start.sh
+
+# Override the default x0-db startup with our initialising script
+CMD ["/root/github2sf-start.sh"]
