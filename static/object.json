@@ -1,34 +1,67 @@
 {
 	"MenuLink1":
 	{
-		"Type": "Link",
+		"Type": "Button",
 		"Attributes":
 		{
 			"Style": "btn btn-outline-secondary d-block mb-2",
 			"TextID": "TXT.MENU.SCREEN1",
-			"ScreenID": "Screen1"
+			"Action": "SwitchScreen",
+			"DstScreenID": "Screen1"
 		}
 	},
 
 	"MenuLink2":
 	{
-		"Type": "Link",
+		"Type": "Button",
 		"Attributes":
 		{
 			"Style": "btn btn-outline-secondary d-block mb-2",
 			"TextID": "TXT.MENU.SCREEN2",
-			"ScreenID": "Screen2"
+			"Action": "SwitchScreen",
+			"DstScreenID": "Screen2"
 		}
 	},
 
 	"MenuLink3":
 	{
-		"Type": "Link",
+		"Type": "Button",
 		"Attributes":
 		{
 			"Style": "btn btn-outline-secondary d-block mb-2",
 			"TextID": "TXT.MENU.SCREEN3",
-			"ScreenID": "Screen3"
+			"Action": "SwitchScreen",
+			"DstScreenID": "Screen3"
+		}
+	},
+
+	"GitHubCredentialsHeader":
+	{
+		"Type": "Div",
+		"Attributes":
+		{
+			"Style": "mb-2"
+		}
+	},
+
+	"GitHubCredentialsHeaderTitle":
+	{
+		"Type": "SQLText",
+		"Attributes":
+		{
+			"Style": "h5 fw-bold mb-0",
+			"IconStyle": "fa-brands fa-github",
+			"TextID": "TXT.SCREEN1.GITHUB.SECTION.HEADER"
+		}
+	},
+
+	"GitHubCredentialsHeaderSubtitle":
+	{
+		"Type": "SQLText",
+		"Attributes":
+		{
+			"Style": "text-muted small mb-0",
+			"TextID": "TXT.SCREEN1.GITHUB.SECTION.SUBHEADER"
 		}
 	},
 
@@ -37,41 +70,26 @@
 		"Type": "FormfieldList",
 		"Attributes":
 		{
-			"Sections":
+			"Style": "card card-line bg-body-tertiary border border-dark border-2 p-3 mb-4",
+			"ObjectIDs":
 			[
-				{
-					"ID": "GitHubSection",
-					"Object": "FormSectionHeader",
-					"ObjectAttributes":
-					{
-						"Style": "card card-line bg-body-tertiary border border-dark border-2 mb-4",
-						"SubStyle": "card-body mt-n6",
-						"HeaderIcon": "fa-brands fa-github",
-						"HeaderTextID": "TXT.SCREEN1.GITHUB.SECTION.HEADER",
-						"SubHeaderTextID": "TXT.SCREEN1.GITHUB.SECTION.SUBHEADER"
-					},
-					"Formfields":
-					[
-						"GitHubUserLabel",
-						"GitHubUserInput",
-						"GitHubTokenLabel",
-						"GitHubTokenInput"
-					],
-					"RowStyle": "row mb-3",
-					"RowAfterElements": 4,
-					"ColStyle": "col-md-6",
-					"ColAfterElements": 2
-				}
-			]
+				"GitHubUserLabel",
+				"GitHubUserInput",
+				"GitHubTokenLabel",
+				"GitHubTokenInput"
+			],
+			"RowStyle": "row mb-3",
+			"RowAfterElements": 4,
+			"ColStyle": "col-md-6",
+			"ColAfterElements": 2
 		}
 	},
 
 	"GitHubUserLabel":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldLabel",
 		"Attributes":
 		{
-			"Type": "label",
 			"Style": "form-label fw-semibold",
 			"TextID": "TXT.SCREEN1.GITHUB.USER.LABEL"
 		}
@@ -79,10 +97,9 @@
 
 	"GitHubUserInput":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldText",
 		"Attributes":
 		{
-			"Type": "text",
 			"Style": "form-control form-control-lg",
 			"Placeholder": "github-username",
 			"ValidateRef": "DefaultString",
@@ -92,10 +109,9 @@
 
 	"GitHubTokenLabel":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldLabel",
 		"Attributes":
 		{
-			"Type": "label",
 			"Style": "form-label fw-semibold",
 			"TextID": "TXT.SCREEN1.GITHUB.TOKEN.LABEL"
 		}
@@ -103,7 +119,7 @@
 
 	"GitHubTokenInput":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldText",
 		"Attributes":
 		{
 			"Type": "password",
@@ -135,46 +151,61 @@
 		}
 	},
 
+	"StackfieldCredentialsHeader":
+	{
+		"Type": "Div",
+		"Attributes":
+		{
+			"Style": "mb-2"
+		}
+	},
+
+	"StackfieldCredentialsHeaderTitle":
+	{
+		"Type": "SQLText",
+		"Attributes":
+		{
+			"Style": "h5 fw-bold mb-0",
+			"IconStyle": "fa-solid fa-layer-group",
+			"TextID": "TXT.SCREEN1.STACKFIELD.SECTION.HEADER"
+		}
+	},
+
+	"StackfieldCredentialsHeaderSubtitle":
+	{
+		"Type": "SQLText",
+		"Attributes":
+		{
+			"Style": "text-muted small mb-0",
+			"TextID": "TXT.SCREEN1.STACKFIELD.SECTION.SUBHEADER"
+		}
+	},
+
 	"StackfieldCredentialsForm":
 	{
 		"Type": "FormfieldList",
 		"Attributes":
 		{
-			"Sections":
+			"Style": "card card-line bg-body-tertiary border border-dark border-2 p-3 mb-4",
+			"ObjectIDs":
 			[
-				{
-					"ID": "StackfieldSection",
-					"Object": "FormSectionHeader",
-					"ObjectAttributes":
-					{
-						"Style": "card card-line bg-body-tertiary border border-dark border-2 mb-4",
-						"SubStyle": "card-body mt-n6",
-						"HeaderIcon": "fa-solid fa-layer-group",
-						"HeaderTextID": "TXT.SCREEN1.STACKFIELD.SECTION.HEADER",
-						"SubHeaderTextID": "TXT.SCREEN1.STACKFIELD.SECTION.SUBHEADER"
-					},
-					"Formfields":
-					[
-						"StackfieldEmailLabel",
-						"StackfieldEmailInput",
-						"StackfieldTokenLabel",
-						"StackfieldTokenInput"
-					],
-					"RowStyle": "row mb-3",
-					"RowAfterElements": 4,
-					"ColStyle": "col-md-6",
-					"ColAfterElements": 2
-				}
-			]
+				"StackfieldEmailLabel",
+				"StackfieldEmailInput",
+				"StackfieldTokenLabel",
+				"StackfieldTokenInput"
+			],
+			"RowStyle": "row mb-3",
+			"RowAfterElements": 4,
+			"ColStyle": "col-md-6",
+			"ColAfterElements": 2
 		}
 	},
 
 	"StackfieldEmailLabel":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldLabel",
 		"Attributes":
 		{
-			"Type": "label",
 			"Style": "form-label fw-semibold",
 			"TextID": "TXT.SCREEN1.STACKFIELD.EMAIL.LABEL"
 		}
@@ -182,10 +213,9 @@
 
 	"StackfieldEmailInput":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldText",
 		"Attributes":
 		{
-			"Type": "text",
 			"Style": "form-control form-control-lg",
 			"Placeholder": "user@example.com",
 			"ValidateRef": "DefaultString",
@@ -195,10 +225,9 @@
 
 	"StackfieldTokenLabel":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldLabel",
 		"Attributes":
 		{
-			"Type": "label",
 			"Style": "form-label fw-semibold",
 			"TextID": "TXT.SCREEN1.STACKFIELD.TOKEN.LABEL"
 		}
@@ -206,7 +235,7 @@
 
 	"StackfieldTokenInput":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldText",
 		"Attributes":
 		{
 			"Type": "password",
@@ -238,46 +267,61 @@
 		}
 	},
 
+	"SearchHeader":
+	{
+		"Type": "Div",
+		"Attributes":
+		{
+			"Style": "mb-2"
+		}
+	},
+
+	"SearchHeaderTitle":
+	{
+		"Type": "SQLText",
+		"Attributes":
+		{
+			"Style": "h5 fw-bold mb-0",
+			"IconStyle": "fa-solid fa-magnifying-glass",
+			"TextID": "TXT.SCREEN2.SEARCH.SECTION.HEADER"
+		}
+	},
+
+	"SearchHeaderSubtitle":
+	{
+		"Type": "SQLText",
+		"Attributes":
+		{
+			"Style": "text-muted small mb-0",
+			"TextID": "TXT.SCREEN2.SEARCH.SECTION.SUBHEADER"
+		}
+	},
+
 	"SearchForm":
 	{
 		"Type": "FormfieldList",
 		"Attributes":
 		{
-			"Sections":
+			"Style": "card card-line bg-body-tertiary border border-dark border-2 p-3 mb-3",
+			"ObjectIDs":
 			[
-				{
-					"ID": "SearchSection",
-					"Object": "FormSectionHeader",
-					"ObjectAttributes":
-					{
-						"Style": "card card-line bg-body-tertiary border border-dark border-2 mb-3",
-						"SubStyle": "card-body mt-n6",
-						"HeaderIcon": "fa-solid fa-magnifying-glass",
-						"HeaderTextID": "TXT.SCREEN2.SEARCH.SECTION.HEADER",
-						"SubHeaderTextID": "TXT.SCREEN2.SEARCH.SECTION.SUBHEADER"
-					},
-					"Formfields":
-					[
-						"SearchQueryLabel",
-						"SearchQueryInput",
-						"SearchRepoLabel",
-						"SearchRepoInput"
-					],
-					"RowStyle": "row mb-3",
-					"RowAfterElements": 4,
-					"ColStyle": "col-md-6",
-					"ColAfterElements": 2
-				}
-			]
+				"SearchQueryLabel",
+				"SearchQueryInput",
+				"SearchRepoLabel",
+				"SearchRepoInput"
+			],
+			"RowStyle": "row mb-3",
+			"RowAfterElements": 4,
+			"ColStyle": "col-md-6",
+			"ColAfterElements": 2
 		}
 	},
 
 	"SearchQueryLabel":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldLabel",
 		"Attributes":
 		{
-			"Type": "label",
 			"Style": "form-label fw-semibold",
 			"TextID": "TXT.SCREEN2.SEARCH.QUERY.LABEL"
 		}
@@ -285,10 +329,9 @@
 
 	"SearchQueryInput":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldText",
 		"Attributes":
 		{
-			"Type": "text",
 			"Style": "form-control form-control-lg",
 			"Placeholder": "Search GitHub issues...",
 			"ValidateRef": "DefaultString",
@@ -298,10 +341,9 @@
 
 	"SearchRepoLabel":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldLabel",
 		"Attributes":
 		{
-			"Type": "label",
 			"Style": "form-label fw-semibold",
 			"TextID": "TXT.SCREEN2.SEARCH.REPO.LABEL"
 		}
@@ -309,10 +351,9 @@
 
 	"SearchRepoInput":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldText",
 		"Attributes":
 		{
-			"Type": "text",
 			"Style": "form-control form-control-lg",
 			"Placeholder": "owner/repository",
 			"ValidateRef": "DefaultString",
@@ -399,8 +440,7 @@
 					"ID": "ConnectStackfieldTask",
 					"TextID": "TXT.SCREEN2.CONTEXTMENU.CONNECT",
 					"IconStyle": "fa-solid fa-link",
-					"DstScreenID": "Screen3",
-					"RowColumn": "issue_number",
+					"InternalFunction": "get-data",
 					"FireEvents": [ "ConnectStackfieldTask" ]
 				}
 			],
@@ -438,49 +478,65 @@
 		}
 	},
 
+	"IssueDetailsHeader":
+	{
+		"Type": "Div",
+		"Attributes":
+		{
+			"Style": "mb-2"
+		}
+	},
+
+	"IssueDetailsHeaderTitle":
+	{
+		"Type": "SQLText",
+		"Attributes":
+		{
+			"Style": "h5 fw-bold mb-0",
+			"IconStyle": "fa-brands fa-github",
+			"TextID": "TXT.SCREEN3.ISSUE.SECTION.HEADER"
+		}
+	},
+
+	"IssueDetailsHeaderSubtitle":
+	{
+		"Type": "SQLText",
+		"Attributes":
+		{
+			"Style": "text-muted small mb-0",
+			"TextID": "TXT.SCREEN3.ISSUE.SECTION.SUBHEADER"
+		}
+	},
+
 	"IssueDetailsForm":
 	{
 		"Type": "FormfieldList",
 		"Attributes":
 		{
-			"Sections":
+			"Style": "card card-line bg-body-tertiary border border-dark border-2 p-3 mb-4",
+			"ObjectIDs":
 			[
-				{
-					"ID": "IssueDetailsSection",
-					"Object": "FormSectionHeader",
-					"ObjectAttributes":
-					{
-						"Style": "card card-line bg-body-tertiary border border-dark border-2 mb-4",
-						"SubStyle": "card-body mt-n6",
-						"HeaderIcon": "fa-brands fa-github",
-						"HeaderTextID": "TXT.SCREEN3.ISSUE.SECTION.HEADER",
-						"SubHeaderTextID": "TXT.SCREEN3.ISSUE.SECTION.SUBHEADER"
-					},
-					"Formfields":
-					[
-						"IssueNumberLabel",
-						"IssueNumberField",
-						"IssueStateLabel",
-						"IssueStateField",
-						"IssueTitleLabel",
-						"IssueTitleField",
-						"IssueUrlLabel",
-						"IssueUrlField"
-					],
-					"RowStyle":
-					[
-						"row mb-3",
-						"row mb-3"
-					],
-					"RowAfterElements": [ 4, 4 ],
-					"ColStyle":
-					[
-						"col-md-3 mb-2",
-						"col-md-3 mb-2",
-						"col-md-6 mb-2",
-						"col-md-6 mb-2"
-					]
-				}
+				"IssueNumberLabel",
+				"IssueNumberField",
+				"IssueStateLabel",
+				"IssueStateField",
+				"IssueTitleLabel",
+				"IssueTitleField",
+				"IssueUrlLabel",
+				"IssueUrlField"
+			],
+			"RowStyle":
+			[
+				"row mb-3",
+				"row mb-3"
+			],
+			"RowAfterElements": [ 4, 4 ],
+			"ColStyle":
+			[
+				"col-md-3 mb-2",
+				"col-md-3 mb-2",
+				"col-md-6 mb-2",
+				"col-md-6 mb-2"
 			],
 			"SrcDataObjects":
 			{
@@ -494,10 +550,9 @@
 
 	"IssueNumberLabel":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldLabel",
 		"Attributes":
 		{
-			"Type": "label",
 			"Style": "form-label fw-semibold",
 			"TextID": "TXT.SCREEN3.ISSUE.NUMBER.LABEL"
 		}
@@ -505,10 +560,9 @@
 
 	"IssueNumberField":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldText",
 		"Attributes":
 		{
-			"Type": "text",
 			"DBColumn": "number",
 			"Style": "form-control",
 			"Disabled": true
@@ -517,10 +571,9 @@
 
 	"IssueStateLabel":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldLabel",
 		"Attributes":
 		{
-			"Type": "label",
 			"Style": "form-label fw-semibold",
 			"TextID": "TXT.SCREEN3.ISSUE.STATE.LABEL"
 		}
@@ -528,10 +581,9 @@
 
 	"IssueStateField":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldText",
 		"Attributes":
 		{
-			"Type": "text",
 			"DBColumn": "state",
 			"Style": "form-control",
 			"Disabled": true
@@ -540,10 +592,9 @@
 
 	"IssueTitleLabel":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldLabel",
 		"Attributes":
 		{
-			"Type": "label",
 			"Style": "form-label fw-semibold",
 			"TextID": "TXT.SCREEN3.ISSUE.TITLE.LABEL"
 		}
@@ -551,10 +602,9 @@
 
 	"IssueTitleField":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldText",
 		"Attributes":
 		{
-			"Type": "text",
 			"DBColumn": "title",
 			"Style": "form-control",
 			"Disabled": true
@@ -563,10 +613,9 @@
 
 	"IssueUrlLabel":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldLabel",
 		"Attributes":
 		{
-			"Type": "label",
 			"Style": "form-label fw-semibold",
 			"TextID": "TXT.SCREEN3.ISSUE.URL.LABEL"
 		}
@@ -574,13 +623,42 @@
 
 	"IssueUrlField":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldText",
 		"Attributes":
 		{
-			"Type": "text",
 			"DBColumn": "html_url",
 			"Style": "form-control",
 			"Disabled": true
+		}
+	},
+
+	"StackfieldMappingHeader":
+	{
+		"Type": "Div",
+		"Attributes":
+		{
+			"Style": "mb-2"
+		}
+	},
+
+	"StackfieldMappingHeaderTitle":
+	{
+		"Type": "SQLText",
+		"Attributes":
+		{
+			"Style": "h5 fw-bold mb-0",
+			"IconStyle": "fa-solid fa-layer-group",
+			"TextID": "TXT.SCREEN3.STACKFIELD.SECTION.HEADER"
+		}
+	},
+
+	"StackfieldMappingHeaderSubtitle":
+	{
+		"Type": "SQLText",
+		"Attributes":
+		{
+			"Style": "text-muted small mb-0",
+			"TextID": "TXT.SCREEN3.STACKFIELD.SECTION.SUBHEADER"
 		}
 	},
 
@@ -589,55 +667,40 @@
 		"Type": "FormfieldList",
 		"Attributes":
 		{
-			"Sections":
+			"Style": "card card-line bg-body-tertiary border border-dark border-2 p-3 mb-4",
+			"ObjectIDs":
 			[
-				{
-					"ID": "StackfieldMappingSection",
-					"Object": "FormSectionHeader",
-					"ObjectAttributes":
-					{
-						"Style": "card card-line bg-body-tertiary border border-dark border-2 mb-4",
-						"SubStyle": "card-body mt-n6",
-						"HeaderIcon": "fa-solid fa-layer-group",
-						"HeaderTextID": "TXT.SCREEN3.STACKFIELD.SECTION.HEADER",
-						"SubHeaderTextID": "TXT.SCREEN3.STACKFIELD.SECTION.SUBHEADER"
-					},
-					"Formfields":
-					[
-						"StackfieldRoomLabel",
-						"StackfieldRoomInput",
-						"TaskTitleLabel",
-						"TaskTitleInput",
-						"TaskDescLabel",
-						"TaskDescInput",
-						"TaskPriorityLabel",
-						"TaskPriorityPulldown"
-					],
-					"RowStyle":
-					[
-						"row mb-3",
-						"row mb-3",
-						"row mb-3"
-					],
-					"RowAfterElements": [ 4, 2, 2 ],
-					"ColStyle":
-					[
-						"col-md-6 mb-2",
-						"col-md-6 mb-2",
-						"col-md-12 mb-2",
-						"col-md-12 mb-2"
-					]
-				}
+				"StackfieldRoomLabel",
+				"StackfieldRoomInput",
+				"TaskTitleLabel",
+				"TaskTitleInput",
+				"TaskDescLabel",
+				"TaskDescInput",
+				"TaskPriorityLabel",
+				"TaskPriorityPulldown"
+			],
+			"RowStyle":
+			[
+				"row mb-3",
+				"row mb-3",
+				"row mb-3"
+			],
+			"RowAfterElements": [ 4, 2, 2 ],
+			"ColStyle":
+			[
+				"col-md-6 mb-2",
+				"col-md-6 mb-2",
+				"col-md-12 mb-2",
+				"col-md-12 mb-2"
 			]
 		}
 	},
 
 	"StackfieldRoomLabel":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldLabel",
 		"Attributes":
 		{
-			"Type": "label",
 			"Style": "form-label fw-semibold",
 			"TextID": "TXT.SCREEN3.STACKFIELD.ROOM.LABEL"
 		}
@@ -645,10 +708,9 @@
 
 	"StackfieldRoomInput":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldText",
 		"Attributes":
 		{
-			"Type": "text",
 			"DBColumn": "stackfield_room_id",
 			"Style": "form-control",
 			"Placeholder": "Stackfield Room ID",
@@ -659,10 +721,9 @@
 
 	"TaskTitleLabel":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldLabel",
 		"Attributes":
 		{
-			"Type": "label",
 			"Style": "form-label fw-semibold",
 			"TextID": "TXT.SCREEN3.TASK.TITLE.LABEL"
 		}
@@ -670,10 +731,9 @@
 
 	"TaskTitleInput":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldText",
 		"Attributes":
 		{
-			"Type": "text",
 			"DBColumn": "task_title",
 			"Style": "form-control",
 			"ValidateRef": "DefaultString",
@@ -683,10 +743,9 @@
 
 	"TaskDescLabel":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldLabel",
 		"Attributes":
 		{
-			"Type": "label",
 			"Style": "form-label fw-semibold",
 			"TextID": "TXT.SCREEN3.TASK.DESC.LABEL"
 		}
@@ -694,10 +753,9 @@
 
 	"TaskDescInput":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldTextarea",
 		"Attributes":
 		{
-			"Type": "textarea",
 			"DBColumn": "task_description",
 			"Style": "form-control",
 			"Rows": 5,
@@ -707,10 +765,9 @@
 
 	"TaskPriorityLabel":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldLabel",
 		"Attributes":
 		{
-			"Type": "label",
 			"Style": "form-label fw-semibold",
 			"TextID": "TXT.SCREEN3.TASK.PRIORITY.LABEL"
 		}
@@ -718,10 +775,9 @@
 
 	"TaskPriorityPulldown":
 	{
-		"Type": "Formfield",
+		"Type": "FormfieldPulldown",
 		"Attributes":
 		{
-			"Type": "pulldown",
 			"DBColumn": "task_priority",
 			"Style": "form-select",
 			"Options":

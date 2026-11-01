@@ -2,6 +2,24 @@
 	"Screen1":
 	[
 		{
+			"GitHubCredentialsHeader":
+			{
+				"RefID": "Screen1"
+			}
+		},
+		{
+			"GitHubCredentialsHeaderTitle":
+			{
+				"RefID": "GitHubCredentialsHeader"
+			}
+		},
+		{
+			"GitHubCredentialsHeaderSubtitle":
+			{
+				"RefID": "GitHubCredentialsHeader"
+			}
+		},
+		{
 			"GitHubCredentialsForm":
 			{
 				"RefID": "Screen1"
@@ -11,6 +29,24 @@
 			"GitHubVerifyButton":
 			{
 				"RefID": "Screen1"
+			}
+		},
+		{
+			"StackfieldCredentialsHeader":
+			{
+				"RefID": "Screen1"
+			}
+		},
+		{
+			"StackfieldCredentialsHeaderTitle":
+			{
+				"RefID": "StackfieldCredentialsHeader"
+			}
+		},
+		{
+			"StackfieldCredentialsHeaderSubtitle":
+			{
+				"RefID": "StackfieldCredentialsHeader"
 			}
 		},
 		{
@@ -29,6 +65,24 @@
 
 	"Screen2":
 	[
+		{
+			"SearchHeader":
+			{
+				"RefID": "Screen2"
+			}
+		},
+		{
+			"SearchHeaderTitle":
+			{
+				"RefID": "SearchHeader"
+			}
+		},
+		{
+			"SearchHeaderSubtitle":
+			{
+				"RefID": "SearchHeader"
+			}
+		},
 		{
 			"SearchForm":
 			{
@@ -58,6 +112,24 @@
 	"Screen3":
 	[
 		{
+			"IssueDetailsHeader":
+			{
+				"RefID": "Screen3"
+			}
+		},
+		{
+			"IssueDetailsHeaderTitle":
+			{
+				"RefID": "IssueDetailsHeader"
+			}
+		},
+		{
+			"IssueDetailsHeaderSubtitle":
+			{
+				"RefID": "IssueDetailsHeader"
+			}
+		},
+		{
 			"IssueDetailsConnector":
 			{
 				"RefID": "Screen3"
@@ -67,6 +139,24 @@
 			"IssueDetailsForm":
 			{
 				"RefID": "IssueDetailsConnector"
+			}
+		},
+		{
+			"StackfieldMappingHeader":
+			{
+				"RefID": "Screen3"
+			}
+		},
+		{
+			"StackfieldMappingHeaderTitle":
+			{
+				"RefID": "StackfieldMappingHeader"
+			}
+		},
+		{
+			"StackfieldMappingHeaderSubtitle":
+			{
+				"RefID": "StackfieldMappingHeader"
 			}
 		},
 		{
